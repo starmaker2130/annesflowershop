@@ -17,12 +17,13 @@
                     document.getElementById("logo-container-label").style.width = "100%";
                     
                     setTimeout(function(){
-                        pages[0].style.opacity = "0";
+                        pages[0].style.opacity = 0;
                         pages[0].style.height = "0";
 
                         pages[1].style.display = "block";
                         pages[1].style.height = "100%"
-
+                        pages[1].style.opacity = 1.0;
+                        
                         setTimeout(function(){
                             pages[0].style.display = "none";
                         }, 500);
@@ -39,14 +40,105 @@
                 ];
             var buttons = 
                 [
+                    document.getElementById("video-preview-button-container"),
+                    document.getElementById("exit-video-preview-button-container"),
                     document.getElementById("begin-order-button-container"),
-                    document.getElementById("begin-order-button-container"),
-                    document.getElementById("begin-order-button-container"),
+                    document.getElementById("exit-payment-module-button-container"),/*return-to-main-button-container"),*/
+                    document.getElementById("complete-form-button")
                     
                 ];
             
+            var mediaContainer = [
+
+                document.getElementById("video-container"),
+                document.getElementById("video-preview-container"),
+            ]
+            
+            var videoLogic = {
+                isPlaying: false,
+                isFullScreen: false
+            };
+            
+          /* buttons[4].addEventListener("click", function(){
+                pages[2].style.height = 0;
+                pages[2].style.opacity = 0;
+                
+                pages[3].style.display = "block";
+                pages[3].style.opacity = 1.0;
+                pages[3].style.height = "100%";
+                
+                setTimeout(function(){
+                    pages[2].style.display = "none";
+                }, 500)
+            });*/
+            
+            buttons[3].addEventListener("click", function(){
+                pages[2].style.height = 0;
+                pages[2].style.opacity = 0;
+                
+                pages[1].style.display = "block";
+                pages[1].style.opacity = 1.0;
+                pages[1].style.height = "100%";
+                
+                setTimeout(function(){
+                    pages[2].style.display = "none";
+                }, 500);
+            });
+            
+            buttons[2].addEventListener("click", function(){
+                pages[1].style.opacity = 0;
+                pages[1].style.height = 0;
+
+                pages[2].style.display = "block";
+                pages[2].style.opacity = 1.0;
+                pages[2].style.height = "100%"
+
+                setTimeout(function(){
+                    pages[1].style.display = "none";
+                }, 500);
+            });
+            
+            buttons[1].addEventListener("click", function(){
+                mediaContainer[0].pause();
+                mediaContainer[0].style.opacity = "0";
+                mediaContainer[1].style.backgroundImage = "url('../media/img/annesflowershop.png')";
+                buttons[0].style.display = "block";
+                buttons[0].style.opacity = 1.0;
+                this.style.opacity = 0;
+                setTimeout(function(){
+                    buttons[1].style.display = "none";
+                    mediaContainer[0].style.display = "none";
+                }, 500);
+                videoLogic.isPlaying = false;
+            })
+            
             buttons[0].addEventListener("click", function(){
-                console.log("clicking...");
+                if(videoLogic.isPlaying){
+                    mediaContainer[0].style.opacity = "0";
+                    setTimeout(function(){
+                        mediaContainer[0].style.display = "none";
+                    }, 500);
+                    videoLogic.isPlaying = false;
+                }
+                else{
+                    mediaContainer[0].style.display = "block";
+                    mediaContainer[0].style.opacity = 1.0;
+                    mediaContainer[1].style.backgroundImage = "none";
+                    mediaContainer[1].style.backgroundColor = "rgba(255, 255, 255, 0)";
+                    
+                    mediaContainer[0].play();
+                    buttons[1].style.display = "block"
+                    buttons[1].style.opacity = 1.0;
+                    
+                    this.style.opacity = 0;
+                    setTimeout(function(){
+                        mediaContainer[0].requestFullscreen();
+                        buttons[0].style.display = "none";
+                    }, 500);
+                    
+                    videoLogic.isPlaying = true;
+                }
+                console.log("clicking");
             });
             
             
@@ -72,31 +164,31 @@
             </div>
             <div id="video-preview-container">
                 <div id="video-preview-button-container">&#x25b6;</div>
-                <video id="video-container" width="320" height="240" controls>
-                  <source src="movie.mp4" type="video/mp4">
+                <video id="video-container" width="360" height="270" controls>
+                  <source src="../media/vid/sample_video_0.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video>
+                <div id="exit-video-preview-button-container">x</div>
             </div>
             <div id="begin-order-button-container">order now</div>
         </div>
         <div id="page-2-container" class="page-container">
-            <input type="text" id="arrow-tag-input-container" placeholder="ARrow tag" />
-            <select type="text" id="store-selection-container">
-                <option value="store">store</option>
-            </select>
-            <input type="button" id="complete-form-button" value="go" />
-        </div>
-        <div id="page-3-container" class="page-container">
-            <div id="selected-store-header-container">
-                <div id="back-to-store-selection-button">-</div>
-                <div id="selected-store-header">store</div>
-                <div id="checkout-cart-button">0</div>
+            <div id="paypal-payment-container">
             </div>
-            <div id="store-items-container">
-                <div id="store-item-category-container-0" class="store-item-category-container">0</div>
-                <div id="store-item-category-container-1" class="store-item-category-container">1</div>
-                <div id="store-item-category-container-2" class="store-item-category-container">2</div>
-            </div>
+            <form id="payment-cover-container" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="Z38QUZ9U4UYLU">
+                <table id="table-title-container">
+                <tr><td ><input type="hidden" name="on0" value="Type">Type</td></tr><tr><td><select name="os0" id="table-container">
+                    <option value="Base Package">Base Package $59.99 USD</option>
+                    <option value="Deluxe Package">Deluxe Package $99.99 USD</option>
+                </select> </td></tr>
+                </table>
+                <input type="hidden" name="currency_code" value="USD">
+                <input id="submit-button-row-container" type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+            <div id="exit-payment-module-button-container">back</div>
         </div>
         <div id="page-4-container" class="page-container">
             <div id="cart-header-container">
