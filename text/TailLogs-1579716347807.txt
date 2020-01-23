@@ -1,0 +1,431 @@
+-------------------------------------
+/var/log/nodejs/nodejs.log
+-------------------------------------
+an unknown browser
+This is a mobile device.
+Chrome 48 on Windows 7
+This is a desktop computer.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+Googlebot 2.1
+This is a mobile device.
+Chrome Dev 79.0.3945.116 on a Google Pixel 3 running Android 10
+This is a mobile device.
+Googlebot 2.1
+This is a mobile device.
+Googlebot 2.1
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+Chrome Dev 78.0.3904.108 on Windows 10
+This is a desktop computer.
+Chrome Dev 72.0.3602.2 on Linux
+This is a desktop computer.
+Chrome Dev 78.0.3904.108 on Windows 10
+This is a desktop computer.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown bot
+This is a mobile device.
+an unknown bot
+This is a mobile device.
+Firefox 10.0 on Linux
+This is a desktop computer.
+AhrefsBot 6.1
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+Chrome 57 on Windows 10
+This is a desktop computer.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+Firefox 45.0 on Windows 10
+This is a desktop computer.
+Chrome 45 on Windows 10
+This is a desktop computer.
+Chrome 45 on Windows 10
+This is a desktop computer.
+Chrome 45 on Windows 10
+This is a desktop computer.
+Chrome 45 on Windows 10
+This is a desktop computer.
+Chrome 67 on Windows 7
+This is a desktop computer.
+AhrefsBot 6.1
+This is a mobile device.
+Chrome Dev 53.6.0969.5697 on Windows 10
+This is a desktop computer.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+an unknown browser
+This is a mobile device.
+Firefox 3.6 on Windows Vista
+This is a desktop computer.
+Chrome 60 on Windows 10
+This is a desktop computer.
+an unknown browser
+This is a mobile device.
+Internet Explorer 8.0 on Windows 7
+This is a desktop computer.
+
+
+
+-------------------------------------
+/var/log/nginx/error.log
+-------------------------------------
+
+
+
+
+-------------------------------------
+/var/log/eb-activity.log
+-------------------------------------
+  + EB_APP_BASE_DIR=/var/app
+  + rm -rf /var/app
+[2019-10-10T16:43:58.500Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/30app_deploy.sh] : Starting activity...
+[2019-10-10T16:43:58.902Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/30app_deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_base_dir
+  + EB_APP_BASE_DIR=/var/app
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_deploy_dir
+  + EB_APP_DEPLOY_DIR=/var/app/current
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_user
+  + EB_APP_USER=nodejs
+  + mkdir /var/app
+  + mv /tmp/deployment/application /var/app/current
+  + chown -R nodejs:nodejs /var/app/current
+[2019-10-10T16:43:58.902Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/40config_deploy.sh] : Starting activity...
+[2019-10-10T16:43:59.017Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/40config_deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_staging_dir
+  + EB_CONFIG_STAGING_DIR=/tmp/deployment/config
+  ++ ls /tmp/deployment/config
+  + for i in '$(ls $EB_CONFIG_STAGING_DIR)'
+  ++ sed -e 's/#/\//g'
+  ++ echo '#etc#init#nginx.conf'
+  + FILE_NAME=/etc/init/nginx.conf
+  + /bin/cp /tmp/deployment/config/#etc#init#nginx.conf /etc/init/nginx.conf
+  + for i in '$(ls $EB_CONFIG_STAGING_DIR)'
+  ++ sed -e 's/#/\//g'
+  ++ echo '#etc#init#nodejs.conf'
+  + FILE_NAME=/etc/init/nodejs.conf
+  + /bin/cp /tmp/deployment/config/#etc#init#nodejs.conf /etc/init/nodejs.conf
+  + for i in '$(ls $EB_CONFIG_STAGING_DIR)'
+  ++ sed -e 's/#/\//g'
+  ++ echo '#etc#nginx#conf.d#00_elastic_beanstalk_proxy.conf'
+  + FILE_NAME=/etc/nginx/conf.d/00_elastic_beanstalk_proxy.conf
+  + /bin/cp /tmp/deployment/config/#etc#nginx#conf.d#00_elastic_beanstalk_proxy.conf /etc/nginx/conf.d/00_elastic_beanstalk_proxy.conf
+  + for i in '$(ls $EB_CONFIG_STAGING_DIR)'
+  ++ sed -e 's/#/\//g'
+  ++ echo '#etc#nginx#nginx.conf'
+  + FILE_NAME=/etc/nginx/nginx.conf
+  + /bin/cp /tmp/deployment/config/#etc#nginx#nginx.conf /etc/nginx/nginx.conf
+[2019-10-10T16:43:59.017Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/50start.sh] : Starting activity...
+[2019-10-10T16:44:00.518Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/50start.sh] : Completed activity. Result:
+  + /opt/elasticbeanstalk/containerfiles/ebnode.py --action start-all
+  nodejs start/running, process 3459
+  nginx start/running, process 3467
+[2019-10-10T16:44:00.518Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/60monitor_pids.sh] : Starting activity...
+[2019-10-10T16:44:00.949Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/60monitor_pids.sh] : Completed activity. Result:
+  + '[' -d /etc/healthd ']'
+  ++ /opt/elasticbeanstalk/bin/get-config optionsettings --namespace aws:elasticbeanstalk:container:nodejs --option-name ProxyServer
+  + PROXY_SERVER=nginx
+  + case "$PROXY_SERVER" in
+  + /opt/elasticbeanstalk/bin/healthd-track-pidfile --proxy nginx
+  + /opt/elasticbeanstalk/bin/healthd-track-pidfile --name application --location /var/run/nodejs.pid
+[2019-10-10T16:44:00.950Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/70restart_healthd.sh] : Starting activity...
+[2019-10-10T16:44:03.310Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook/70restart_healthd.sh] : Completed activity. Result:
+  + '[' -d /etc/healthd ']'
+  ++ /opt/elasticbeanstalk/bin/get-config optionsettings --namespace aws:elasticbeanstalk:container:nodejs --option-name ProxyServer
+  + PROXY_SERVER=nginx
+  + '[' -f /etc/healthd/config.yaml ']'
+  + case "$PROXY_SERVER" in
+  ++ grep -L /var/log/nginx/healthd/application.log /etc/healthd/config.yaml
+  + '[' ']'
+  + /opt/elasticbeanstalk/bin/healthd-restart
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployEnactHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/enact.
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployPostHook] : Starting activity...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/AppDeployPostHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/post.
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/PostInitHook] : Starting activity...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1/PostInitHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/postinit.
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/StartupStage1] : Completed activity. Result:
+  Application deployment - Command CMD-SelfStartup stage 1 completed
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter] : Starting activity...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter/ConfigLogRotation] : Starting activity...
+[2019-10-10T16:44:03.312Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter/ConfigLogRotation/10-config.sh] : Starting activity...
+[2019-10-10T16:44:03.480Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter/ConfigLogRotation/10-config.sh] : Completed activity. Result:
+  Disabled forced hourly log rotation.
+[2019-10-10T16:44:03.480Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter/ConfigLogRotation] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logpublish/hooks/config.
+[2019-10-10T16:44:03.480Z] INFO  [3025]  - [Application deployment site-trial-1@8/AddonsAfter] : Completed activity.
+[2019-10-10T16:44:03.480Z] INFO  [3025]  - [Application deployment site-trial-1@8] : Completed activity. Result:
+  Application deployment - Command CMD-SelfStartup succeeded
+[2020-01-22T17:38:03.170Z] INFO  [32687] - [CMD-TailLogs] : Starting activity...
+[2020-01-22T17:38:03.171Z] INFO  [32687] - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2020-01-22T17:38:03.171Z] INFO  [32687] - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2020-01-22T17:38:03.171Z] INFO  [32687] - [CMD-TailLogs/TailLogs] : Starting activity...
+[2020-01-22T17:38:03.171Z] INFO  [32687] - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+[2020-01-22T17:38:03.436Z] INFO  [32687] - [CMD-TailLogs/TailLogs/TailLogs] : Completed activity.
+[2020-01-22T17:38:03.436Z] INFO  [32687] - [CMD-TailLogs/TailLogs] : Completed activity. Result:
+  CMD-TailLogs - stage 0 - Command CMD-TailLogs stage 0 completed
+[2020-01-22T17:38:03.436Z] INFO  [32687] - [CMD-TailLogs/AddonsAfter] : Starting activity...
+[2020-01-22T17:38:03.436Z] INFO  [32687] - [CMD-TailLogs/AddonsAfter] : Completed activity.
+[2020-01-22T17:38:03.437Z] INFO  [32687] - [CMD-TailLogs] : Completed activity. Result:
+  CMD-TailLogs - Command CMD-TailLogs succeeded
+[2020-01-22T18:05:47.707Z] INFO  [1128]  - [CMD-TailLogs] : Starting activity...
+[2020-01-22T18:05:47.707Z] INFO  [1128]  - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2020-01-22T18:05:47.707Z] INFO  [1128]  - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2020-01-22T18:05:47.707Z] INFO  [1128]  - [CMD-TailLogs/TailLogs] : Starting activity...
+[2020-01-22T18:05:47.707Z] INFO  [1128]  - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+
+
+
+-------------------------------------
+/var/log/nginx/access.log
+-------------------------------------
+44.225.84.206 - - [22/Jan/2020:01:11:40 +0000] "GET http://example.com/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:40 +0000] "GET http://169.254.169.254/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:40 +0000] "GET http://[::ffff:a9fe:a9fe]/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:40 +0000] "GET http://169.254.169.254/latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET http://[::ffff:a9fe:a9fe]/latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:41 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03oF-i\xEB\xD6\xF1o\xBF\x97" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:42 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03I\x99\x0Fp\xD1\x93\x1CP\xFE\x87F\x01\xC9h^j\x5C\xE4'B\xDB\x96Q\xFC\xDE0\x82" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:43 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\xF3i\x993\xF7\xD7|\x08\xAB\xA5\x9AsG\xB8\x92\x88\xD4\x9Atvm\x8F\xFC\xB2J\xC0\x0C\x88\xFF1iT\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:43 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\xA7Eu\xCAyM$p^\xD7\xBA\x0B\x1F\x00\xB6\xE8\xB5\xAD\x087w\x9E \x13\xB0z\xAC\x91\x0F\xD5\x83*\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:01:11:43 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03W\x05o\xF8Ev\x9D!*\xA2Fb\x1D_(\xB8\x9D#\xE8\xA3\xDAn\xCA\xFB\x0BY\xF4h\x97\xF2\xF5\xCA\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+66.249.64.249 - - [22/Jan/2020:01:41:35 +0000] "GET /robots.txt HTTP/1.1" 404 147 "-" "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "-"
+66.249.64.249 - - [22/Jan/2020:01:41:35 +0000] "GET /js/experience_main.js HTTP/1.1" 200 533 "http://3.213.223.200/" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.74 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "-"
+66.249.64.249 - - [22/Jan/2020:01:41:36 +0000] "GET /js/experience_fx.js HTTP/1.1" 200 2270 "http://3.213.223.200/" "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.74 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)" "-"
+104.152.52.30 - - [22/Jan/2020:01:45:51 +0000] "GET / HTTP/1.0" 200 2733 "-" "masscan/1.0 (https://github.com/robertdavidgraham/masscan)" "-"
+79.137.37.62 - - [22/Jan/2020:01:54:56 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 zgrab/0.x" "-"
+209.17.96.226 - - [22/Jan/2020:02:39:29 +0000] "GET / HTTP/1.0" 200 2733 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)" "-"
+209.17.96.186 - - [22/Jan/2020:03:03:48 +0000] "GET / HTTP/1.1" 200 2733 "-" "Mozilla/5.0 (compatible; Nimbostratus-Bot/v1.3.2; http://cloudsystemnetworks.com)" "-"
+5.188.210.101 - - [22/Jan/2020:03:04:34 +0000] "\x05\x01\x00" 400 173 "-" "-" "-"
+5.188.210.101 - - [22/Jan/2020:03:05:52 +0000] "\x04\x01\x00P\x05\xBC\xD2e\x00" 400 173 "-" "-" "-"
+5.188.210.101 - - [22/Jan/2020:03:06:26 +0000] "GET http://5.188.210.101/echo.php HTTP/1.1" 404 146 "https://www.google.com/" "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36" "-"
+193.57.40.46 - - [22/Jan/2020:04:07:29 +0000] "POST /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php HTTP/1.1" 404 173 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36" "-"
+179.43.169.182 - - [22/Jan/2020:04:55:52 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0" "-"
+151.80.39.197 - - [22/Jan/2020:05:31:26 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)" "-"
+144.91.91.116 - - [22/Jan/2020:05:46:58 +0000] "GET /VSServices HTTP/1.1" 404 149 "-" "curl/7.29.0" "-"
+35.198.196.232 - - [22/Jan/2020:06:08:10 +0000] "GET /wp-login.php HTTP/1.1" 404 150 "http://houseofven.us/wp-login.php" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0" "-"
+73.228.155.198 - - [22/Jan/2020:06:08:23 +0000] "GET / HTTP/1.1" 200 2733 "-" "-" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:48 +0000] "GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1" 404 171 "-" "ZmEu" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:49 +0000] "GET /phpMyAdmin/scripts/setup.php HTTP/1.1" 404 162 "-" "ZmEu" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:49 +0000] "GET /phpmyadmin/scripts/setup.php HTTP/1.1" 404 160 "-" "ZmEu" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:49 +0000] "GET /pma/scripts/setup.php HTTP/1.1" 404 155 "-" "ZmEu" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:49 +0000] "GET /myadmin/scripts/setup.php HTTP/1.1" 404 158 "-" "ZmEu" "-"
+178.62.206.245 - - [22/Jan/2020:09:02:49 +0000] "GET /MyAdmin/scripts/setup.php HTTP/1.1" 404 160 "-" "ZmEu" "-"
+185.234.217.88 - - [22/Jan/2020:10:04:44 +0000] "GET /a/.env HTTP/1.1" 404 145 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0" "-"
+185.234.217.88 - - [22/Jan/2020:10:04:44 +0000] "GET /public/.env HTTP/1.1" 404 149 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0" "-"
+185.234.217.88 - - [22/Jan/2020:10:04:44 +0000] "GET /m/.env HTTP/1.1" 404 145 "-" "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:66.0) Gecko/20100101 Firefox/66.0" "-"
+172.105.11.111 - - [22/Jan/2020:10:19:38 +0000] "GET / HTTP/1.0" 200 2733 "-" "-" "-"
+71.6.232.4 - - [22/Jan/2020:10:22:37 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36" "-"
+60.191.66.222 - - [22/Jan/2020:10:24:01 +0000] "GET /manager/html HTTP/1.1" 404 151 "-" "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)" "-"
+103.248.25.35 - - [22/Jan/2020:10:33:51 +0000] "GET /wp-login.php HTTP/1.1" 404 150 "http://houseofven.us/wp-login.php" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:62.0) Gecko/20100101 Firefox/62.0" "-"
+172.105.11.111 - - [22/Jan/2020:10:37:54 +0000] "GET / HTTP/1.0" 200 2733 "-" "-" "-"
+172.105.11.111 - - [22/Jan/2020:10:37:54 +0000] "GET / HTTP/1.1" 200 2733 "-" "-" "-"
+172.105.11.111 - - [22/Jan/2020:10:38:09 +0000] "HEAD / HTTP/1.1" 200 0 "-" "\x22Mozilla/5.0" "-"
+221.11.4.149 - - [22/Jan/2020:10:42:49 +0000] "HEAD http://123.125.114.144/ HTTP/1.1" 200 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0" "-"
+171.34.176.95 - - [22/Jan/2020:10:42:51 +0000] "CONNECT www.baidu.com:443 HTTP/1.1" 400 173 "-" "-" "-"
+112.66.100.24 - - [22/Jan/2020:10:42:51 +0000] "CONNECT www.voanews.com:443 HTTP/1.1" 400 173 "-" "-" "-"
+112.80.137.221 - - [22/Jan/2020:10:42:53 +0000] "GET http://www.wujieliulan.com/ HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+112.232.246.86 - - [22/Jan/2020:10:42:54 +0000] "CONNECT cn.bing.com:443 HTTP/1.1" 400 173 "-" "-" "-"
+112.117.16.130 - - [22/Jan/2020:10:42:56 +0000] "GET http://www.minghui.org/ HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+112.80.136.93 - - [22/Jan/2020:10:42:57 +0000] "GET http://www.rfa.org/english/ HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+119.118.31.60 - - [22/Jan/2020:10:42:59 +0000] "CONNECT www.ipip.net:443 HTTP/1.1" 400 173 "-" "-" "-"
+106.45.1.103 - - [22/Jan/2020:10:42:59 +0000] "GET http://www.epochtimes.com/ HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+123.138.77.59 - - [22/Jan/2020:10:42:59 +0000] "GET http://www.123cha.com/ HTTP/1.1" 200 917 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+122.96.28.89 - - [22/Jan/2020:10:43:02 +0000] "GET http://boxun.com/ HTTP/1.1" 499 0 "-" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36" "-"
+51.79.102.96 - - [22/Jan/2020:12:24:14 +0000] "HEAD /robots.txt HTTP/1.0" 404 0 "-" "-" "-"
+158.255.133.201 - - [22/Jan/2020:12:46:45 +0000] "GET / HTTP/1.0" 200 2733 "http://houseofven.us-east-1.elasticbeanstalk.com/" "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36" "-"
+5.196.87.116 - - [22/Jan/2020:12:59:50 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (compatible; AhrefsBot/6.1; +http://ahrefs.com/robot/)" "-"
+84.17.61.131 - - [22/Jan/2020:13:05:43 +0000] "GET / HTTP/1.1" 200 917 "http://houseofven.us" "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/535.11.68 (KHTML, like Gecko) Chrome/53.6.0969.5697 Safari/534.50" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:07 +0000] "GET http://example.com/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:07 +0000] "GET http://169.254.169.254/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET http://[::ffff:a9fe:a9fe]/ HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET http://169.254.169.254/latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET http://[::ffff:a9fe:a9fe]/latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:08 +0000] "GET / HTTP/1.1" 200 917 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "GET /latest/dynamic/instance-identity/document HTTP/1.1" 404 166 "-" "AWS Security Scanner" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:09 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "CONNECT 3.213.223.200:80 HTTP/1.0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\x9A\x17\xC2\xF0\xE9\xFA.83v\x17\xCF\x06\xA8\x19\xC93\x14\xA8\x9B\xA3\xFE`\x91\xA0E\x8A\x94\xC5T\xC3e\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\x9F\x0F\xA9g\x9C\x8A\xDF@\x83\xC9\xA1\x17\x1C\xAF&L\xB7\x8Ei2\xBF\xA0\xC0\x07\x1Dj\xDA\xC0\xB0\xF0\x9A\xB8\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\x8F\x8Dj\x0B\xD3\xE4\xC5\xE6p%\x93`\x93\x85D\xE2N\xE7\x06Vc\x98W\xDC\xBDf\xF5|\x0F\x1E5\x04\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03{db\xF8\x86\x8DZ$\x03\xE8\xD5\xC8g\x03T\xC1IQ\xE0\xF9\xD3N\xF7Z\x11\x14\x01\x02A\xD9N\xCD\x00\x00b\xC00\xC0,\xC0/\xC0+\x00\x9F\x00\x9E\xC02\xC0.\xC01\xC0-\x00\xA5\x00\xA1\x00\xA4\x00\xA0\xC0(\xC0$\xC0\x14\xC0" 400 173 "-" "-" "-"
+44.225.84.206 - - [22/Jan/2020:13:13:10 +0000] "\x16\x03\x01\x00\xD2\x01\x00\x00\xCE\x03\x03\xC9\xF1\x87\xF9,\x0E\xE4\x9B\x9C\x01\x07\xB4\x88|\x06" 400 173 "-" "-" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:05 +0000] "GET /TP/public/index.php HTTP/1.1" 404 155 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:05 +0000] "GET /TP/index.php HTTP/1.1" 404 149 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:07 +0000] "GET /thinkphp/html/public/index.php HTTP/1.1" 404 160 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:11 +0000] "GET /html/public/index.php HTTP/1.1" 404 155 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:11 +0000] "GET /public/index.php HTTP/1.1" 404 152 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:12 +0000] "GET /TP/html/public/index.php HTTP/1.1" 404 157 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:13 +0000] "GET /elrekt.php HTTP/1.1" 404 147 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:14 +0000] "GET /index.php HTTP/1.1" 404 147 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+117.30.196.27 - - [22/Jan/2020:14:43:15 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (Windows; U; Windows NT 6.0;en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6)" "-"
+128.14.209.178 - - [22/Jan/2020:15:07:02 +0000] "GET / HTTP/1.1" 200 917 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36" "-"
+159.65.187.159 - - [22/Jan/2020:16:23:21 +0000] "GET / HTTP/1.0" 200 2733 "-" "masscan/1.0 (https://github.com/robertdavidgraham/masscan)" "-"
+222.186.19.221 - - [22/Jan/2020:17:05:32 +0000] "CONNECT ip.ws.126.net:443 HTTP/1.1" 400 173 "-" "-" "-"
+60.13.7.149 - - [22/Jan/2020:17:27:47 +0000] "HEAD http://123.125.114.144/ HTTP/1.1" 200 0 "-" "Mozilla/4.01707650 Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; EmbeddedWB 14.52 from: http://www.bsalsa.com/ EmbeddedWB 14.52; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)" "-"
+
+
+
+-------------------------------------
+/var/log/eb-commandprocessor.log
+-------------------------------------
+[2019-10-10T16:43:33.296Z] DEBUG [3025]  : Stage_num does not exist. Not saving null stage. Returning..
+[2019-10-10T16:43:33.296Z] DEBUG [3025]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2019-10-10T16:43:33.296Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2019-10-10T16:43:33.297Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2019-10-10T16:43:33.297Z] INFO  [3025]  : Found enabled addons: ["logpublish", "logstreaming"].
+[2019-10-10T16:43:33.299Z] INFO  [3025]  : Updating Command definition of addon logpublish.
+[2019-10-10T16:43:33.299Z] INFO  [3025]  : Updating Command definition of addon logstreaming.
+[2019-10-10T16:43:33.299Z] DEBUG [3025]  : Refreshing metadata...
+[2019-10-10T16:43:33.299Z] DEBUG [3025]  : Using cached environment metadata.
+[2019-10-10T16:43:33.299Z] INFO  [3025]  : Recreated directory /opt/elasticbeanstalk/deploy/configuration/.
+[2019-10-10T16:43:33.299Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_AppSourceUrlFileContent||url..
+[2019-10-10T16:43:33.300Z] INFO  [3025]  : Created appsource url file at /opt/elasticbeanstalk/deploy/configuration/appsourceurl.
+[2019-10-10T16:43:33.300Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent..
+[2019-10-10T16:43:33.301Z] INFO  [3025]  : Created container config file at /opt/elasticbeanstalk/deploy/configuration/containerconfiguration.
+[2019-10-10T16:43:33.301Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2019-10-10T16:43:33.301Z] DEBUG [3025]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2019-10-10T16:43:33.302Z] INFO  [3025]  : Found enabled addons: ["logpublish", "logstreaming"].
+[2019-10-10T16:43:33.303Z] INFO  [3025]  : Updating Command definition of addon logpublish.
+[2019-10-10T16:43:33.303Z] INFO  [3025]  : Updating Command definition of addon logstreaming.
+[2019-10-10T16:43:33.303Z] DEBUG [3025]  : Loaded definition of Command CMD-SelfStartup.
+[2019-10-10T16:43:33.303Z] INFO  [3025]  : Executing Application deployment
+[2019-10-10T16:43:33.304Z] INFO  [3025]  : Executing command: CMD-SelfStartup...
+[2019-10-10T16:43:33.304Z] INFO  [3025]  : Executing command CMD-SelfStartup activities...
+[2019-10-10T16:43:33.304Z] DEBUG [3025]  : Setting environment variables..
+[2019-10-10T16:43:33.304Z] INFO  [3025]  : Running AddonsBefore for command CMD-SelfStartup...
+[2019-10-10T16:43:33.428Z] DEBUG [3025]  : Running stages of Command CMD-SelfStartup from stage 0 to stage 1...
+[2019-10-10T16:43:33.428Z] INFO  [3025]  : Running stage 0 of command CMD-SelfStartup...
+[2019-10-10T16:43:33.428Z] DEBUG [3025]  : Loaded 7 actions for stage 0.
+[2019-10-10T16:43:33.428Z] INFO  [3025]  : Running 1 of 7 actions: HealthdLogRotation...
+[2019-10-10T16:43:33.433Z] INFO  [3025]  : Running 2 of 7 actions: HealthdHTTPDLogging...
+[2019-10-10T16:43:33.433Z] INFO  [3025]  : Running 3 of 7 actions: HealthdNginxLogging...
+[2019-10-10T16:43:33.433Z] INFO  [3025]  : Running 4 of 7 actions: EbExtensionPreBuild...
+[2019-10-10T16:43:33.801Z] INFO  [3025]  : Running 5 of 7 actions: AppDeployPreHook...
+[2019-10-10T16:43:54.219Z] INFO  [3025]  : Running 6 of 7 actions: EbExtensionPostBuild...
+[2019-10-10T16:43:54.662Z] INFO  [3025]  : Running 7 of 7 actions: InfraCleanEbextension...
+[2019-10-10T16:43:54.672Z] INFO  [3025]  : Running stage 1 of command CMD-SelfStartup...
+[2019-10-10T16:43:54.672Z] DEBUG [3025]  : Loaded 3 actions for stage 1.
+[2019-10-10T16:43:54.672Z] INFO  [3025]  : Running 1 of 3 actions: AppDeployEnactHook...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  : Running 2 of 3 actions: AppDeployPostHook...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  : Running 3 of 3 actions: PostInitHook...
+[2019-10-10T16:44:03.311Z] INFO  [3025]  : Running AddonsAfter for command CMD-SelfStartup...
+[2019-10-10T16:44:03.480Z] INFO  [3025]  : Command CMD-SelfStartup succeeded!
+[2019-10-10T16:44:03.480Z] INFO  [3025]  : Command processor returning results: 
+{"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"","returncode":0,"events":[]}]}
+[2020-01-22T17:38:03.158Z] DEBUG [32687] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-01-22T17:38:03.159Z] DEBUG [32687] : Checking if the command processor should execute...
+[2020-01-22T17:38:03.161Z] DEBUG [32687] : Checking whether the command is applicable to instance (i-0c2e55a944fd74385)..
+[2020-01-22T17:38:03.161Z] INFO  [32687] : Command is applicable to this instance (i-0c2e55a944fd74385)..
+[2020-01-22T17:38:03.161Z] DEBUG [32687] : Checking if the received command stage is valid..
+[2020-01-22T17:38:03.161Z] INFO  [32687] : No stage_num in command. Valid stage..
+[2020-01-22T17:38:03.161Z] INFO  [32687] : Received command CMD-TailLogs: {"execution_data"=>"*", "instance_ids"=>["i-0c2e55a944fd74385"], "data"=>"18ed9dae-b747-4ef3-b9bb-781c7a63b99f", "command_name"=>"CMD-TailLogs", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"18ed9dae-b747-4ef3-b9bb-781c7a63b99f"}
+[2020-01-22T17:38:03.161Z] INFO  [32687] : Command processor should execute command.
+[2020-01-22T17:38:03.161Z] DEBUG [32687] : Storing current stage..
+[2020-01-22T17:38:03.162Z] DEBUG [32687] : Stage_num does not exist. Not saving null stage. Returning..
+[2020-01-22T17:38:03.162Z] DEBUG [32687] : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-01-22T17:38:03.162Z] DEBUG [32687] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2020-01-22T17:38:03.166Z] DEBUG [32687] : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2020-01-22T17:38:03.166Z] INFO  [32687] : Found enabled addons: ["logpublish", "logstreaming"].
+[2020-01-22T17:38:03.168Z] INFO  [32687] : Updating Command definition of addon logpublish.
+[2020-01-22T17:38:03.169Z] INFO  [32687] : Updating Command definition of addon logstreaming.
+[2020-01-22T17:38:03.169Z] DEBUG [32687] : Loaded definition of Command CMD-TailLogs.
+[2020-01-22T17:38:03.170Z] INFO  [32687] : Executing CMD-TailLogs
+[2020-01-22T17:38:03.171Z] INFO  [32687] : Executing command: CMD-TailLogs...
+[2020-01-22T17:38:03.171Z] INFO  [32687] : Executing command CMD-TailLogs activities...
+[2020-01-22T17:38:03.171Z] DEBUG [32687] : Setting environment variables..
+[2020-01-22T17:38:03.171Z] INFO  [32687] : Running AddonsBefore for command CMD-TailLogs...
+[2020-01-22T17:38:03.171Z] DEBUG [32687] : Running stages of Command CMD-TailLogs from stage 0 to stage 0...
+[2020-01-22T17:38:03.171Z] INFO  [32687] : Running stage 0 of command CMD-TailLogs...
+[2020-01-22T17:38:03.171Z] DEBUG [32687] : Loaded 1 actions for stage 0.
+[2020-01-22T17:38:03.171Z] INFO  [32687] : Running 1 of 1 actions: TailLogs...
+[2020-01-22T17:38:03.436Z] INFO  [32687] : Running AddonsAfter for command CMD-TailLogs...
+[2020-01-22T17:38:03.437Z] INFO  [32687] : Command CMD-TailLogs succeeded!
+[2020-01-22T17:38:03.437Z] INFO  [32687] : Command processor returning results: 
+{"status":"SUCCESS","api_version":"1.0","results":[{"status":"SUCCESS","msg":"","returncode":0,"events":[{"msg":"[Instance: i-0c2e55a944fd74385] Successfully finished tailing 5 log(s)","severity":"INFO","timestamp":1579714683437}]}]}
+[2020-01-22T18:05:47.701Z] DEBUG [1128]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-01-22T18:05:47.701Z] DEBUG [1128]  : Checking if the command processor should execute...
+[2020-01-22T18:05:47.703Z] DEBUG [1128]  : Checking whether the command is applicable to instance (i-0c2e55a944fd74385)..
+[2020-01-22T18:05:47.703Z] INFO  [1128]  : Command is applicable to this instance (i-0c2e55a944fd74385)..
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Checking if the received command stage is valid..
+[2020-01-22T18:05:47.704Z] INFO  [1128]  : No stage_num in command. Valid stage..
+[2020-01-22T18:05:47.704Z] INFO  [1128]  : Received command CMD-TailLogs: {"execution_data"=>"*", "instance_ids"=>["i-0c2e55a944fd74385"], "data"=>"6184e154-3351-488b-b3e7-1cb44bc52aa3", "command_name"=>"CMD-TailLogs", "api_version"=>"1.0", "resource_name"=>"AWSEBAutoScalingGroup", "request_id"=>"6184e154-3351-488b-b3e7-1cb44bc52aa3"}
+[2020-01-22T18:05:47.704Z] INFO  [1128]  : Command processor should execute command.
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Storing current stage..
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Stage_num does not exist. Not saving null stage. Returning..
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Reading config file: /etc/elasticbeanstalk/.aws-eb-stack.properties
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_ContainerConfigFileContent||commands..
+[2020-01-22T18:05:47.704Z] DEBUG [1128]  : Retrieving metadata for key: AWS::ElasticBeanstalk::Ext||_API||_Commands..
+[2020-01-22T18:05:47.705Z] INFO  [1128]  : Found enabled addons: ["logpublish", "logstreaming"].
+[2020-01-22T18:05:47.706Z] INFO  [1128]  : Updating Command definition of addon logpublish.
+[2020-01-22T18:05:47.706Z] INFO  [1128]  : Updating Command definition of addon logstreaming.
+[2020-01-22T18:05:47.706Z] DEBUG [1128]  : Loaded definition of Command CMD-TailLogs.
+[2020-01-22T18:05:47.706Z] INFO  [1128]  : Executing CMD-TailLogs
+[2020-01-22T18:05:47.707Z] INFO  [1128]  : Executing command: CMD-TailLogs...
+[2020-01-22T18:05:47.707Z] INFO  [1128]  : Executing command CMD-TailLogs activities...
+[2020-01-22T18:05:47.707Z] DEBUG [1128]  : Setting environment variables..
+[2020-01-22T18:05:47.707Z] INFO  [1128]  : Running AddonsBefore for command CMD-TailLogs...
+[2020-01-22T18:05:47.707Z] DEBUG [1128]  : Running stages of Command CMD-TailLogs from stage 0 to stage 0...
+[2020-01-22T18:05:47.707Z] INFO  [1128]  : Running stage 0 of command CMD-TailLogs...
+[2020-01-22T18:05:47.707Z] DEBUG [1128]  : Loaded 1 actions for stage 0.
+[2020-01-22T18:05:47.707Z] INFO  [1128]  : Running 1 of 1 actions: TailLogs...
+
+
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>ANNE's FLOWER SHOP</title>
+    <link rel="stylesheet" href="../css/flowerstyle.css" href="text/css"/>
+    <!--<script src="../js/script.js"></script>-->
+    <script src="../js/socket.io.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var connection = io.connect(location.host);
+            connection.emit("CLIENTconnectToSERVER", {status: true});
+            
+            connection.on("SERVERloadStoreTargetsOnCLIENT", function(data){
+                if(data.status){
+                    document.getElementById("logo-container-label").style.width = "100%";
+                    
+                    setTimeout(function(){
+                        pages[0].style.opacity = "0";
+                        pages[0].style.height = "0";
+
+                        pages[1].style.display = "block";
+                        pages[1].style.height = "100%"
+
+                        setTimeout(function(){
+                            pages[0].style.display = "none";
+                        }, 500);
+                    }, 6500);
+                }
+            });
+            
+            var pages =
+                [
+                    document.getElementById("page-0-container"),
+                    document.getElementById("page-1-container"),
+                    document.getElementById("page-2-container"),
+                    document.getElementById("page-3-container"),
+                ];
+            var buttons = 
+                [
+                    document.getElementById("begin-order-button-container"),
+                    document.getElementById("begin-order-button-container"),
+                    document.getElementById("begin-order-button-container"),
+                    
+                ];
+            
+            buttons[0].addEventListener("click", function(){
+                console.log("clicking...");
+            });
+            
+            
+            
+            
+        });    
+    </script>
+</head>
+<body>
+    <div id="main-app-container">
+        <div id="page-0-container" class="page-container">
+            <div id="logo-container">
+                <div id="logo-container-symbol"></div>
+                <div id="logo-container-label"></div>
+            </div>
+        </div>
+        <div id="page-1-container" class="page-container">
+            <div id="store-title-container">
+                <div id="menu-item-container"></div>
+                <div id="title-line-0-container" class="title-line-container">ANNE's</div>
+                <div id="title-line-1-container" class="title-line-container">FLOWER SHOP</div>
+                <div id="checkout-cart-button-container"></div>
+            </div>
+            <div id="video-preview-container">
+                <div id="video-preview-button-container">&#x25b6;</div>
+                <video id="video-container" width="320" height="240" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <div id="begin-order-button-container">order now</div>
+        </div>
+        <div id="page-2-container" class="page-container">
+            <input type="text" id="arrow-tag-input-container" placeholder="ARrow tag" />
+            <select type="text" id="store-selection-container">
+                <option value="store">store</option>
+            </select>
+            <input type="button" id="complete-form-button" value="go" />
+        </div>
+        <div id="page-3-container" class="page-container">
+            <div id="selected-store-header-container">
+                <div id="back-to-store-selection-button">-</div>
+                <div id="selected-store-header">store</div>
+                <div id="checkout-cart-button">0</div>
+            </div>
+            <div id="store-items-container">
+                <div id="store-item-category-container-0" class="store-item-category-container">0</div>
+                <div id="store-item-category-container-1" class="store-item-category-container">1</div>
+                <div id="store-item-category-container-2" class="store-item-category-container">2</div>
+            </div>
+        </div>
+        <div id="page-4-container" class="page-container">
+            <div id="cart-header-container">
+                <div id="back-to-store-menu-button">-</div>
+                <div id="cart-header">cart</div>
+            </div>
+            <div id="cart-items-container">0</div>
+            <div>checkout</div>
+        </div>
+    </div>
+</body>
+</html>
