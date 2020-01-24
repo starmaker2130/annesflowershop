@@ -37,15 +37,20 @@
                     document.getElementById("page-1-container"),
                     document.getElementById("page-2-container"),
                     document.getElementById("page-3-container"),
+                    document.getElementById("page-overlay-container")
                 ];
             var buttons = 
                 [
-                    document.getElementById("video-preview-button-container"),
-                    document.getElementById("exit-video-preview-button-container"),
-                    document.getElementById("begin-order-button-container"),
-                    document.getElementById("exit-payment-module-button-container"),/*return-to-main-button-container"),*/
-                    document.getElementById("complete-form-button")
-                    
+                    document.getElementById("video-preview-button-container"),  //0
+                    document.getElementById("exit-video-preview-button-container"), //1
+                    document.getElementById("begin-order-button-container"),    //2
+                    document.getElementById("exit-payment-module-button-container"),    //3
+                    document.getElementById("menu-item-container"), //4 
+                    document.getElementById("track-order-option-label"),    //5
+                    document.getElementById("about-company-option-label"),  //6
+                    document.getElementById("track-order-tap-to-close-button-container"),   //7
+                    document.getElementById("about-company-tap-to-close-button-container"), //8
+                    /*return-to-main-button-container"),*/
                 ];
             
             var mediaContainer = [
@@ -59,18 +64,126 @@
                 isFullScreen: false
             };
             
-          /* buttons[4].addEventListener("click", function(){
-                pages[2].style.height = 0;
-                pages[2].style.opacity = 0;
+            var menuLogic = {
+                optionCurrentlyOpen: false,
+                currentOptionName: null,
+                menuCurrentlyOpen: false
+            };
+            
+            buttons[8].addEventListener("click", function(){
+                document.getElementById("track-order-option").style.display = "block";
+                document.getElementById("track-order-option").style.height = "30%";
+                document.getElementById("track-order-option-label").style.height = "100%";
+                document.getElementById("track-order-option").style.opacity = 1.0;
                 
-                pages[3].style.display = "block";
-                pages[3].style.opacity = 1.0;
-                pages[3].style.height = "100%";
                 
+                document.getElementById("about-company-option").style.height = "30%";
+                
+                
+                document.getElementById("about-company-option-content").style.height = 0;
+                document.getElementById("about-company-option-content").style.opacity = 0;
                 setTimeout(function(){
-                    pages[2].style.display = "none";
-                }, 500)
-            });*/
+                    document.getElementById("about-company-option-content").style.display = "none";
+                }, 500);
+                
+                menuLogic.optionCurrentlyOpen = false;
+            });
+            
+            buttons[7].addEventListener("click", function(){
+                document.getElementById("about-company-option").style.display = "block";
+                document.getElementById("about-company-option").style.height = "30%";
+                document.getElementById("about-company-option-label").style.height = "100%";
+                document.getElementById("about-company-option").style.opacity = 1.0;
+                
+                document.getElementById("track-order-option").style.height = "30%";
+                
+                
+                document.getElementById("track-order-option-content").style.height = 0;
+                document.getElementById("track-order-option-content").style.opacity = 0;
+                setTimeout(function(){
+                    document.getElementById("track-order-option-content").style.display = "none";
+                }, 500);
+                
+                menuLogic.optionCurrentlyOpen = false;
+            });
+            
+            buttons[6].addEventListener("click", function(){
+                if(menuLogic.optionCurrentlyOpen){
+                    let previous = menuLogic.currentOptionName;
+                    document.getElementById(previous).style.height = 0;
+                    document.getElementById(previous).style.opacity = 0;
+                     setTimeout(function(){
+                         document.getElementById(previous).style.display = "none";
+                     }, 500);
+                }
+                document.getElementById("about-company-option-content").style.display = "block";
+                document.getElementById("about-company-option-content").style.opacity = 1.0;
+                document.getElementById("about-company-option-content").style.height = "80%";
+                document.getElementById("about-company-option-label").style.height = "20%";
+                
+                document.getElementById("about-company-option").style.height = "100%";
+                menuLogic.currentOptionName = "about-company-option-content";
+                
+                let option = document.getElementById("track-order-option");
+                option.style.height = 0;
+                option.style.opacity = 0;
+                setTimeout(function(){
+                    option.style.display = "none"
+                }, 500);
+                
+                menuLogic.optionCurrentlyOpen = true;
+            });
+            
+            buttons[5].addEventListener("click", function(){
+                if(menuLogic.optionCurrentlyOpen){
+                    let previous = menuLogic.currentOptionName;
+                    document.getElementById(previous).style.height = 0;
+                    document.getElementById(previous).style.opacity = 0;
+                     setTimeout(function(){
+                         document.getElementById(previous).style.display = "none";
+                     }, 500);
+                }
+                document.getElementById("track-order-option-content").style.display = "block";
+                document.getElementById("track-order-option-content").style.opacity = 1.0;
+                document.getElementById("track-order-option-label").style.height = "20%";
+                document.getElementById("track-order-option-content").style.height = "80%";
+                
+                document.getElementById("track-order-option").style.height = "100%";
+                menuLogic.currentOptionName = "track-order-option-content";
+                
+                let option = document.getElementById("about-company-option");
+                
+                option.style.height = 0;
+                option.style.opacity = 0;
+                setTimeout(function(){
+                    option.style.display = "none"
+                }, 500);
+                
+                menuLogic.optionCurrentlyOpen = true;
+            });
+            
+            
+            buttons[4].addEventListener("click", function(){
+                if(menuLogic.menuCurrentlyOpen){
+                    pages[4].style.height = 0;
+                    pages[4].style.opacity = 0;
+                    
+                    setTimeout(function(){
+                        pages[4].style.display = "none";
+                    }, 500);
+                    
+                    menuLogic.menuCurrentlyOpen = false;
+                }
+                else{
+                    pages[4].style.display = "block";
+                    pages[4].style.height = "100%";
+                    pages[4].style.opacity = 1.0;
+                    
+                    menuLogic.menuCurrentlyOpen = true;
+                }
+            });
+            
+            
             
             buttons[3].addEventListener("click", function(){
                 pages[2].style.height = 0;
@@ -190,13 +303,36 @@
             </form>
             <div id="exit-payment-module-button-container">back</div>
         </div>
-        <div id="page-4-container" class="page-container">
-            <div id="cart-header-container">
-                <div id="back-to-store-menu-button">-</div>
-                <div id="cart-header">cart</div>
+        <div id="page-overlay-container" class="page-container">
+            <div id="track-order-option" class="option-container">
+                <div id="track-order-option-label" class="option-label">
+                    track
+                </div>
+                <div id="track-order-option-content" class="option-content">
+                    <p class="content-container">
+                        exit this menu and click on the cart icon to track an order in progress
+                    </p>
+                    <p id="track-order-tap-to-close-button-container" class="tap-to-close-button-container">
+                        tap to close
+                    </p>
+                </div>
             </div>
-            <div id="cart-items-container">0</div>
-            <div>checkout</div>
+            <div id="about-company-option" class="option-container">
+                <div id="about-company-option-label" class="option-label">
+                    about
+                </div>
+                <div id="about-company-option-content" class="option-content">
+                    <p class="option-content-section">
+                        Anne's Flower Shop is the world's first blockchain-supported market for cARds.
+                    </p>
+                    <p class="option-content-section">
+                        Use it for business, family, friends, or personal adventure. The world is your desktop; your hand is the mouse.
+                    </p>
+                    <p id="about-company-tap-to-close-button-container" class="tap-to-close-button-container">
+                        tap to close
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
