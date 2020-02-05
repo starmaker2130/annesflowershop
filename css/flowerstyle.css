@@ -114,6 +114,7 @@ body, html, #main-app-container{
 }
 
 #video-preview-container{
+    border-radius: 10px;
     position: relative;
     width: 90%;
     max-width: 506px;
@@ -122,8 +123,11 @@ body, html, #main-app-container{
     opacity: 1.0;
     transition: background-image 0.5s;
     
-    background-image: url("../media/img/annesflowershop.png");
-    background-size: 100% 100%;
+    background-image: url("../media/img/annesflowershop.gif");
+    background-size: auto 90%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.8);
     z-index: 0;
     box-shadow: 25px 20px 10px white;
     -web-kit-box-shadow: 25px 20px 10px white;
