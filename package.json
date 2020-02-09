@@ -1,0 +1,16 @@
+{
+  "name": "annes-flower-shop",
+  "version": "0.2.2",
+  "private": true,
+  "dependencies": {
+    "ejs": "latest",
+    "aws-sdk": "latest",
+    "express": "latest",
+    "body-parser": "latest",
+    "which-browser": "latest",
+    "socket.io": "latest"
+  },
+  "scripts": {
+    "start": "node single-aws-cluster.js"
+  }
+}

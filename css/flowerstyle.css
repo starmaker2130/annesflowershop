@@ -81,7 +81,7 @@ body, html, #main-app-container{
     left: 1%;
     width: 99%;
     height: 50%;
-    font-size: 36px;
+    font-size: 102px;/*36px;*/
     z-index: 0;
     text-align: center;
     font-weight: 900;
@@ -103,8 +103,8 @@ body, html, #main-app-container{
     background-size: 100% 100%;
     border-radius: 50%;
     z-index: 10;
-    width: 60px;
-    height: 60px;
+    width: 150px;/*60px;*/
+    height: 150px;/*60px;*/
     cursor: pointer;
     transition: background-image 0.5s;
 }
@@ -117,8 +117,8 @@ body, html, #main-app-container{
     border-radius: 10px;
     position: relative;
     width: 90%;
-    max-width: 506px;
-    height: 420px;
+    /*max-width: 506px;*/
+    height: 60%;/*420px;*/
     margin: 5% auto;
     opacity: 1.0;
     transition: background-image 0.5s;
@@ -142,8 +142,8 @@ body, html, #main-app-container{
 }
 
 #video-preview-button-container{
-    width: 150px;
-    height: 150px;
+    width: 300px;/*150px;*/
+    height: 300px;/*150px;*/
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0);/**/
     color: rgba(255, 255, 255, 1.0);
@@ -151,11 +151,11 @@ body, html, #main-app-container{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin: -75px 0 0 -75px;
+    margin: -150px 0 0 -150px;/*-75px 0 0 -75px;*/
     z-index: 10;
     text-align: center;
-    line-height: 150px;
-    font-size: 40px;
+    line-height: 300px;/*150px;*/
+    font-size: 72px;/*40px;*/
     cursor: pointer;
     opacity: 1.0;
     transition: background-color 0.5s, color 0.5s, opacity: 0.5s;
@@ -190,19 +190,19 @@ body, html, #main-app-container{
 
 #begin-order-button-container{
     width: 80%;
-    height: 100px;
+    height: 13%;/*100px;*/
     border-radius: 10px;
     text-align: center;
     text-transform: uppercase;
     color: black;
-    font-size: 40px;
-    line-height: 100px;
+    font-size: 96px;/*40px;*/
+    line-height: 250px; /*100px;*/
     font-weight: 900;
     background-color:rgba(255, 255, 255, 1.0); 
     transition: background-color 0.5s, border-radius 0.5s, color 0.5s;
     position: absolute;
     margin-left: -40%;
-    bottom: 10%;
+    bottom: 3%;/*10%;*/
     z-index: 5;
     left: 50%;
     font-family: 'Varela Round', sans-serif;
@@ -211,8 +211,8 @@ body, html, #main-app-container{
 #checkout-cart-button-container{
     /*font-family: "Montserrat", sans-serif;*/
     display: inline-block;
-    width: 56px;
-    height: 56px;
+    width: 144px;/*56px;*/
+    height: 144px;/*56px;*/
     background-image: url("../media/img/cart-icon.png");
     background-color: white;
     background-size: 50% 50%;
@@ -279,6 +279,15 @@ body, html, #main-app-container{
     left: 0;
     font-size: 0;
 }
+
+#iframe-container{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 #page-1-container, #page-2-container, #page-3-container, #page-4-container, #page-overlay-container{
     height: 0;
     display: none;
@@ -293,8 +302,8 @@ body, html, #main-app-container{
     width: 100%;
     height: 100%;
     min-height: 150px;
-    line-height: 150px;
-    font-size: 30px;
+    line-height: 350px;/*150px;*/
+    font-size: 120px;/*30px;*/
     font-weight: 900;
     color: black;
     font-family: "Open Sans", sans-serif;

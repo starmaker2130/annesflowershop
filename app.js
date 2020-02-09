@@ -2,7 +2,7 @@
 var cluster = require('cluster');
 
 // Code to run if we're in the master process
-if (cluster.isMaster) {
+/*if (cluster.isMaster) {
 
     // Count the machine's CPUs
     var cpuCount = require('os').cpus().length;
@@ -23,7 +23,7 @@ if (cluster.isMaster) {
 
 // Code to run if we're in a worker process
     }
-else {
+else {*/
   // author(s):  Patrice-Morgan Ongoly
     // version: 0.2.2
     // last modified: Saturday, June 29, 2019 14:32 EST
@@ -89,6 +89,23 @@ else {
 
     app.get('/', function(req, res){
         var result = new WhichBrowser(req.headers);
+        console.log("---     client thread start      ---");
+        console.log(result.toString());
+        
+        if(result.isType('desktop')){
+            console.log('-----------------------------\nThis is a desktop computer.');
+            deviceType = 'desktop';
+        }
+        else{
+            console.log('-----------------------------\nThis is a mobile device.');
+            deviceType = 'mobile';
+        }
+        
+        res.render('index.html',{root: dir[0]});
+    });
+
+    app.get('/frame', function(req, res){
+        var result = new WhichBrowser(req.headers);
         console.log(result.toString());
         if(result.isType('desktop')){
             console.log('This is a desktop computer.');
@@ -99,7 +116,7 @@ else {
             deviceType = 'mobile';
         }
 
-        res.render('prod-index.html',{root: dir[0]});
+        res.render('frame.html',{root: dir[0]});
     });
 
     app.get('/css/:stylesheet_id', function(req, res){
@@ -323,9 +340,8 @@ else {
             socket.emit("SERVERloadStoreTargetsOnCLIENT", {status: true, targetsArray: ["annesflowershop"], style: styleArray});
         });
         
-        
         socket.on('disconnect', function(){
             console.log(`socket ${socket.id} disconnected.`);
         });
     });
-}//
+//}//
